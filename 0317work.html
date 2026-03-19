@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    var marker = true;
+
+    function put(div) {
+        if (div.innerHTML != "") return;
+        div.innerHTML = (marker) ? "X" : "O";
+
+        var d1 = document.getElementById('d1').innerHTML;
+        var d2 = document.getElementById('d2').innerHTML;
+        var d3 = document.getElementById('d3').innerHTML;
+        var d4 = document.getElementById('d4').innerHTML;
+        var d5 = document.getElementById('d5').innerHTML;
+        var d6 = document.getElementById('d6').innerHTML;
+        var d7 = document.getElementById('d7').innerHTML;
+        var d8 = document.getElementById('d8').innerHTML;
+        var d9 = document.getElementById('d9').innerHTML;
+
+        if (
+            (d1 != "" && d1 == d2 && d1 == d3) ||
+            (d4 != "" && d4 == d5 && d4 == d6) ||
+            (d7 != "" && d7 == d8 && d7 == d9) ||
+            (d1 != "" && d1 == d4 && d1 == d7) ||
+            (d2 != "" && d2 == d5 && d2 == d8) ||
+            (d3 != "" && d3 == d6 && d3 == d9) ||
+            (d1 != "" && d1 == d5 && d1 == d9) ||
+            (d7 != "" && d7 == d5 && d7 == d3)
+        ) {
+            document.getElementById('result').innerHTML = (marker ? "X" : "O") + " Win!";
+        }
+
+        marker = !marker;
+    }
+</script></head>
+<body>
+    <div style="position: absolute;width: 10px;height: 620px;left: 300px;top: 100px;background-color: black;"></div>
+    <div style="position: absolute;width: 10px;height: 620px;left: 510px;top: 100px;background-color: black;"></div>
+    <div style="position: absolute;width: 620px;height: 10px;left: 100px;top: 300px;background-color: black;"></div>
+    <div style="position: absolute;width: 620px;height: 10px;left: 100px;top: 510px;background-color: black;"></div>
+    <center>
+    <div id="d1" onclick="put(this);"style="font-size:180px;position: absolute;width: 200px;height: 200px;left: 100px;top: 100px;background-color: grey;"></div>
+    <div id="d2" onclick="put(this);"style="font-size:180px;position: absolute;width: 200px;height: 200px;left: 100px;top: 310px;background-color: grey;"></div>
+    <div id="d3" onclick="put(this);"style="font-size:180px;position: absolute;width: 200px;height: 200px;left: 100px;top: 520px;background-color: grey;"></div>
+    <div id="d4" onclick="put(this);"style="font-size:180px;position: absolute;width: 200px;height: 200px;left: 310px;top: 100px;background-color: grey;"></div>
+    <div id="d5" onclick="put(this);"style="font-size:180px;position: absolute;width: 200px;height: 200px;left: 310px;top: 310px;background-color: grey;"></div>
+    <div id="d6" onclick="put(this);"style="font-size:180px;position: absolute;width: 200px;height: 200px;left: 310px;top: 520px;background-color: grey;"></div>
+    <div id="d7" onclick="put(this);"style="font-size:180px;position: absolute;width: 200px;height: 200px;left: 520px;top: 100px;background-color: grey;"></div>
+    <div id="d8" onclick="put(this);"style="font-size:180px;position: absolute;width: 200px;height: 200px;left: 520px;top: 310px;background-color: grey;"></div>
+    <div id="d9" onclick="put(this);"style="font-size:180px;position: absolute;width: 200px;height: 200px;left: 520px;top: 520px;background-color: grey;"></div>
+    <div style="position: absolute;width: 500px;height: 100px;left: 0px;top: 0px;"id="result"></div>
+    </center>
+</body>
+</html>
